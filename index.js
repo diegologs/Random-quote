@@ -1,23 +1,46 @@
-$("document").ready(function() {
-    var request = $.ajax({
-        url: "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=xml&lang=en",
-        method: "GET",
-        dataType: "json"
-    });
+function openURL(url) {
+    window.open(url, 'Share', 'width=550, height=400, toolbar=0, scrollbars=1 ,location=0 ,statusbar=0,menubar=0, resizable=0');
+}
 
-    request.done(function(msg) {
-        $("#log").html(msg);
-    });
+function inIframe() {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
 
-    request.fail(function(jqXHR, textStatus) {
-        alert("Request failed: " + textStatus);
-    });
+function getQuote() {
+    $.ajax({
+        headers: {
+            "X-Mashape-Key": "dITqRwBOt6mshm55nVGnfBU8bAVLp1MqSdRjsn3G3wFvdesZxZ"
+            , Accept: "application/json"
+            , "Content-Type": "application/x-www-form-urlencoded"
+        }
+        , url: 'https://andruxnet-random-famous-quotes.p.mashape.com/cat='
+        , success: function (response) {
+            var r = JSON.parse(response);
+            currentQuote = r.quote;
+            currentAuthor = r.author;
 
-	$(".boton").on("click", function(){
-      // Only change code below this line.
-      $(".quote").html("Here is the message");
-      // Only change code above this line.
-    });
 
+            if (inIframe()) {
+                $('#twitterlink').attr('href', 'https://twitter.com/intent/tweet?&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor + "   /   " + "http://codepen.io/Frostq/pen/VjEZqm" + " @DiegoLopGr"));
+
+
+            }
+            $("#text").html(r.quote);
+            $("#author").html(" - " + r.author + " - ");
+
+
+
+        }
+    });
+}
+
+
+$("document").ready(function () {
+    getQuote();
+    $('.boton').on('click', getQuote);
 
 });

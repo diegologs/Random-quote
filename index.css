@@ -1,37 +1,73 @@
-
 body {
     background-color: #dae0e3;
     font-family: 'Droid Sans', sans-serif;
 }
 
-
-.main-content{
-	   float: none;
+.main-content {
+    float: none;
     margin: 0 auto;
-	background-color:white;
-	margin-top:20%;
-	height:30%;
-
-
+    background-color: white;
+    margin-top: 10px;
+    height: 30%;
+    -webkit-box-shadow: 5px 5px 16px 1px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 5px 5px 16px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 5px 5px 16px 1px rgba(0, 0, 0, 0.24);
 }
 
-.titulo{
-	text-align: center;
-
-
-
+.titulo {
+    text-align: center;
+    margin-top: 9%;
+    color: grey;
 }
 
-.centered_content{
-	text-align:center; 
-	
-
+.centered_content {
+    text-align: center;
 }
 
-.boton{
-	
-
-
+.btn {
+    border-radius: 5px;
+    padding: 10px 25px;
+    float: right;
+    font-size: 22px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-weight: bold;
+    margin-right: 15px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
 }
 
+.btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
 
+.green {
+    background-color: #2ecc71;
+    box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+.green:hover {
+    background-color: #48E68B;
+}
+
+.twitter-share {
+    display: block;
+    background: url("https://static.addtoany.com/images/blog/tweet-button-2015.png");
+    color: #000000;
+    cursor: pointer;
+    font-weight: bold;
+    height: 82px;
+    padding-bottom: 2px;
+    width: 200px;
+}
+
+#text {
+    font-size: 1.8em;
+}
+
+#author {
+    font-size: 1.4em;
+}
